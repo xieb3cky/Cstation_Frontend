@@ -107,8 +107,6 @@ function StationCard({ id, name, address, state, postcode, phone, email, availab
                 <h1>{name}</h1>
                 <a className="address-link" href={`https://www.google.com/maps?daddr=${lat},${long}`}
                     target="_blank">{address_complete}</a>
-
-
             </div>
         </div>
     );

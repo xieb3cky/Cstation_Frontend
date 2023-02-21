@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Alert from "../common/Alert";
+
 
 /** Signup form.
  *
  * Shows form and manages update to state on changes.
  * On submission:
  * - calls signup function prop
- * - redirects to /companies route
+ * - redirects to home route "/"
  *
- * Routes -> SignupForm -> Alert
- * Routed as /signup
+ * Routes -> SignupForm 
+ * Routed as "/signup"
  */
 
 function SignupForm({ signup }) {
@@ -36,18 +36,18 @@ function SignupForm({ signup }) {
 
     /** Handle form submit:
      *
-     * Calls login func prop and, if successful, redirect to /companies.
+     * Calls login func prop and, if successful, redirect to "/"
      */
 
     async function handleSubmit(evt) {
         evt.preventDefault();
-        console.log("signing up")
         let result = await signup(formData);
         if (result.success) {
             navigate("/");
         } else {
             setFormErrors(result.errors);
         }
+        //clear form data
         setFormData({
             username: "",
             password: "",
@@ -136,12 +136,6 @@ function SignupForm({ signup }) {
                         <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Sign in</button>
                     </form>
                 </section>
-
-                {formErrors?.length
-                    ? <Alert type="danger" messages={formErrors} />
-                    : null
-                }
-
             </div>
         </div>
     )
