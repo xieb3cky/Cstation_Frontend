@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body-container {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background: rgb(126, 147, 167);
+    color: var(--text);
+    height: 100vh;
+    --text: #1e1f24;
+    --primary: #fff;
+    --secondary: #f4f5f9;
+    --accent: #8d62f7;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.display-page {
+    height: 80vh;
+    left: 0;
+    position: absolute;
+}
+
+
+.page-grid {
+    width: min(calc(100% - 1rem), 1024px);
+    margin: 1rem auto;
+    background: var(--primary);
+    min-height: 40rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-sizing: 0 0 0 4px var(--secondary);
+}
+
+.banner img {
+    width: 150px;
+}
+
+.form-wrapper,
+.banner {
+    padding: 0;
+    margin-left: 0;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.header p {
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.field input {
+    font-size: 1rem;
+    line-height: 48px;
+    padding: 0 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 2px var(--secondary);
+}
+
+.field input:focus {
+    border-style: solid;
+    border-color: #8d62f7;
+}
+
+
+.field input::placeholder {
+    font-family: inherit;
+    opacity: 0.5;
+}
+
+.btn {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    margin-top: 1.25rem;
+    cursor: pointer;
+    background: var(--secondary);
+    line-height: 48px;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.google-sign-in svg {
+    width: 18px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.pass-section {
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .page-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .banner {
+        background: var(--secondary);
+        order: 2;
+    }
+
+}
+
+.citems {
+    position: absolute;
+    height: 75vh;
+    margin-top: 10vh;
+    margin-left: 2rem;
+    overflow-y: scroll;
+
+
+}
+
+.citems::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+/*Favorites Star Styling*/
+
+
+
+/* * {
+    box-sizing: border-box;
+}
+
+.container {
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+} */
+
+.rating {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: row-reverse;
+    height: 150px;
+    position: relative;
+}
+
+.rating-0 {
+    filter: grayscale(100%);
+}
+
+.rating>input {
+    display: none;
+}
+
+.rating>label {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-top: auto;
+    background-image: url("data:image/svg+xml;
+ charset=UTF-8, %3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73' %3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z' /%3e%3c/svg%3e");
+ background-repeat: no-repeat;
+            background-position: center;
+            background-size: 76%;
+            transition: 0.3s;
+    }
+
+    .rating > input:checked ~ label, .rating > input:checked ~ label ~ label {
+        background-image: url("data:image/svg+xml;
+ charset=UTF-8, %3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73' %3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z' /%3e%3c/svg%3e");
+
+        }
+
+        .rating > input:not(:checked) ~ label:hover, .rating > input:not(:checked) ~ label:hover ~ label {
+            background-image: url("data:image/svg+xml;
+ charset=UTF-8, %3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73' %3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z' /%3e%3c/svg%3e");
+
+            }

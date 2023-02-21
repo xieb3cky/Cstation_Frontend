@@ -1,0 +1,16 @@
+.map-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.fullmap {
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    /* flex: 1; */
+}
+
+/* .map-container {
+    width: 100%;
+    height: 100%;
+} */
