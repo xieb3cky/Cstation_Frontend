@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import useLocalStorage from "./hooks/useLocalStorage";
-import NavBar from "./routes-nav/NavBar";
-import MainRoutes from "./routes-nav/MainRoutes";
+import NavBar from "./routes/NavBar";
+import MainRoutes from "./routes/MainRoutes";
 import CstationAPI from "./api/api";
 import UserContext from "./auth/UserContext";
 import jwt from "jsonwebtoken";
@@ -75,9 +75,8 @@ function App() {
 
   /** Handles site-wide signup.
  *
- * Automatically logs them in (set token) upon signup.
+ * Logs user in and (set token) upon signup.
  *
- * Make sure you await this function and check its return value!
  */
   async function signup(signupData) {
     try {
@@ -90,8 +89,8 @@ function App() {
     }
   }
   /** Handles site-wide login.
-   *
-   * Make sure you await this function and check its return value!
+   * 
+   * Logs user in and (set token) upon verified credentials. 
    */
   async function login(loginData) {
     try {
@@ -104,15 +103,19 @@ function App() {
     }
   }
 
-  /** Handles site-wide logout. */
+  /** Handles site-wide logout.
+   * 
+   *  Sets currUser & token to null. 
+   */
   function signout() {
-    console.log("signed out")
     setCurrUser(null);
     setToken(null);
   }
 
   /**
-   * Pass form data to backend then get request Open Charger API for chargers
+   * Pass form data to backend.
+   * 
+   * Set SearchStations state with stations list returned from Open Charger Map API.
    */
   async function search(data) {
     try {
@@ -127,40 +130,46 @@ function App() {
 
   };
 
-  /**check is user already favorited a station */
+  /**
+   * Checks if station has been favorited - if station id is in user's favorites list.
+   */
   function favorited(id) {
-    // const f = new Set(...favorites)
-    // setfavorites(f)
     return favorites.has(id);
   }
 
-  /**favorites a station*/
+  /**
+   * Function to favorite a charging station. 
+   * 
+   * Pass station id in favorited func - checks if station has been favorited.
+   * If not, setFavorites state to include the new station id to favorites.
+   * 
+   * Then, pass station info to backend to save station info and user's list of favorites. 
+  */
   async function favoriteStation(data) {
-
     if (favorited(data.id)) return;
-    // console.log("favorting a station brb!")
     setfavorites(new Set([...favorites, data.id]));
-    console.log(favorites)
     data["user_id"] = currUser.id;
     let res = await CstationAPI.favorite(data);
     return { success: true };
   }
-
+  /**
+   * Function to delete/un-favorite a station.
+   * 
+   * Filter favorites array to remove deleted favorite. 
+   * 
+   * Then pass data: user_id & station_id to backend to remove from user's list of favorites.
+  */
 
   async function deleteFavorite(id) {
     let favorites_ = [...favorites]
 
     favorites_ = favorites_.filter((f) => f != id)
-    console.log(id)
-    console.log(favorites_)
-
     const data = {
       user_id: currUser.id,
       station_id: id
     }
     let res = await CstationAPI.deleteFavorite(data);
     setfavorites(new Set([...favorites_]))
-    // setfavorites(new Set(favorites_));
   }
 
 
