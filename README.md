@@ -8,7 +8,7 @@ Easy-to-use solution for users who are searching for electric car charging stati
 
 Using geolocation data, the application presents users with charging stations based on their search criteria. Users can refine their search further by specifying electric charger type and maximum results. 
 
-The application also offers tools to help users favorite/un-favorite and leave reviews for a charging stations. The detailed reviews of charging stations can help other users make informed decisions, and they can also view relevant information for selecting charging stations.
+The application also offers tools to help users favorite/un-favorite and leave reviews for a charging station. The detailed reviews of charging stations can help other users make informed decisions, and they can also view relevant information for selecting charging stations.
 
 ## Technologies
  - React
@@ -54,11 +54,11 @@ The search form displays an autocomplete input box that offers location-based su
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search.gif" alt="animated" />
 </p>
 
-### Search Result
+### Results
 When a user submits a search form, the backend sends a GET request to the Open Charge Map API with the form data. The API returns a list of charging stations that match the user's search criteria. For each charging station in the list, React components are utilized to render a charging station card that displays relevant information about the station. Users can also easily favorite and un-favorite charging stations, which will save the charging station information to our databse.
 
 <p align="center">
-  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search-result-gif.gif" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/results-gif.gif" alt="animated" />
 </p> 
 
 ### Log In 
@@ -68,7 +68,7 @@ Log in form, welcomes returning user and requires username and password.
 </p> 
 
 ### Sign Up
-Sign up form, user can create a new account by providing requested information. 
+Sign up form, user can create a new account by providing the requested information. 
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/signupform.gif" alt="animated" />
 </p> 
