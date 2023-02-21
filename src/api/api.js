@@ -4,8 +4,12 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
 
 /**
  * API Class
+ * 
+ * Static class tying together methods used to get/send to to the backend.
+ *
  */
 class CstationAPI {
+    // the token for interactive with the API will be stored here.
     static token;
 
     static async request(endpoint, data = {}, method = "get") {
@@ -81,19 +85,16 @@ class CstationAPI {
     static async favorite(data) {
         const res = await this.request(`user/favorites`, data, "post");
     }
-    //get user's favorites
+    /**Get all of user's favorites */
     static async getAllFavorites(user_id) {
         const res = await this.request(`auth/favorites/${user_id}`);
 
         return res.data;
     }
-
+    /**Remove user's favorites */
     static async deleteFavorite(data) {
         const res = await this.request(`user/delete-favorite`, data, "post");
     }
-
-
-
 
 }
 
