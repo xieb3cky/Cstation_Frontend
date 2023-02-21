@@ -1,7 +1,9 @@
 
 # C Station
 
-Search for electric car chargers based on user's input geo location.
+***** WORK IN PROGRESS ****
+
+Search for electric car chargers based on user's input location.
 
 ## Technologies
  - React
@@ -14,7 +16,7 @@ Search for electric car chargers based on user's input geo location.
    - Utilizied to find electric car charging stations based on geo location. 
    - Filters {latitude, longitude, charger type, max result} => sent to Open Charger Map API.
  - [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview)
-   - Utilized to create custom maps with markers to display each charging stations.
+   - Utilized to create custom maps with markers to display each charging stations on google map.
    - Autocomplete, a feature of the Places libary, provides 'type-ahead-search behavior',helping user match on full words and substrings, resolving places name, addresses, and codes. 
 
 
@@ -23,6 +25,13 @@ Search for electric car chargers based on user's input geo location.
 
  - [Landing page background video](https://www.youtube.com/watch?v=M32bzsBswAk)
  - [Animated blue car](https://codepen.io/gvissing/pen/RwBMxKj)
+  
+## Features 
+ - New user registration
+ - Log in/log out for returing user
+ - Save/favorite a charging station
+ - Leave reviews for a charging station (***work in progress***)
+ - Search for electric car chargers base on user's input geo location
   
 ## Demo
 
@@ -35,7 +44,7 @@ Landing page consist of background video credit above. Navbar contains options f
 ### Search Form 
 Search form displays autocomplete input box, where user can type in text based location and autocomplete will provide suggestions/predictions. Next, user will select charger types, common charger types are Tesla, CCS1, CHAdeMoO, J-Plug. Lastly, select maximum result and hit search!
 <p align="center">
-  <img src="" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search.gif" alt="animated" />
 </p>
 
 ### Search Result
@@ -54,5 +63,5 @@ Log in form, welcomes returning user and requires username and password.
 ### Sign Up
 Sign up form, user can create a new account by providing requested information. 
 <p align="center">
-  <img src="" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/signupform.gif" alt="animated" />
 </p> 
