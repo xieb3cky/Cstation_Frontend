@@ -3,7 +3,12 @@
 
 ***** WORK IN PROGRESS ****
 
-Search for electric car chargers based on user's input location.
+## Summary
+Easy-to-use solution for users who are searching for electric car charging stations near their current location.
+
+Using geolocation data, the application presents users with charging stations based on their search criteria. Users can refine their search further by specifying electric charger type and maximum results. 
+
+The application also offers tools to help users favorite/un-favorite and leave reviews for a charging stations. The detailed reviews of charging stations can help other users make informed decisions, and they can also view relevant information for selecting charging stations.
 
 ## Technologies
  - React
@@ -14,10 +19,11 @@ Search for electric car chargers based on user's input location.
 ## APIs
  - [Open Charger Map API](https://openchargemap.org/site)
    - Utilizied to find electric car charging stations based on geo location. 
-   - Filters {latitude, longitude, charger type, max result} => sent to Open Charger Map API.
+   - Search parameters : {latitude, longitude, charger type, max result} => sent to Open Charger Map API.
+   - The API responds with list of charging stations based on criteria. 
  - [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview)
-   - Utilized to create custom maps with markers to display each charging stations on google map.
-   - Autocomplete, a feature of the Places libary, provides 'type-ahead-search behavior',helping user match on full words and substrings, resolving places name, addresses, and codes. 
+   - Utilized to create custom map with markers to display the location of each charging station on a Google Map.
+   - Places library's autocomplete feature offers a convenient "type-ahead-search behavior" that enables users to quickly find matching full words and substrings. With the ability to resolve place names, addresses, and codes, it simplifies the search process for users.
 
 
 
@@ -29,26 +35,27 @@ Search for electric car chargers based on user's input location.
 ## Features 
  - New user registration
  - Log in/log out for returing user
- - Save/favorite a charging station
+ - Save/favorite a charging station for future reference
  - Leave reviews for a charging station (***work in progress***)
  - Search for electric car chargers base on user's input geo location
   
 ## Demo
 
 ### Homepage 
-Landing page consist of background video credit above. Navbar contains options for search, quick search, log in and sign up. User can perform a 'quick search' which takes user's current location and search for chargers OR 'search' which requires additional information.
+Landing page consist of background video credit section located above. The navigation bar features various options, including search, quick search, log in, and sign up for easy access. Users can initiate a 'quick search' that leverages geolocation data to automatically search for charging stations near their current location. Alternatively, users can perform a more detailed 'search' that requires additional information, such as the user's location, desired charging station type, and maximum search results (limit to 10).
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/landing-pagegif.gif" alt="animated" />
 </p>
 
 ### Search Form 
-Search form displays autocomplete input box, where user can type in text based location and autocomplete will provide suggestions/predictions. Next, user will select charger types, common charger types are Tesla, CCS1, CHAdeMoO, J-Plug. Lastly, select maximum result and hit search!
+The search form displays an autocomplete input box that offers location-based suggestions and predictions as the user types. Once the user has entered their location, they can select from a variety of charger types, including popular options like Tesla, CCS1, CHAdeMO, and J-Plug. After specifying their charger type preferences, the user can set a maximum results parameter and hit search button!
+
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search.gif" alt="animated" />
 </p>
 
 ### Search Result
-After user completes search form, a GET request is sent to Open Charge Map API with the form data. From the API, we recieve a list of charging stations. Then, for each charging stations, we utilize React components to render charging stations list => charging station card to display information regarding each station. User can also favorite/un-favorite each station which will save the charging station to our database. 
+When a user submits a search form, the backend sends a GET request to the Open Charge Map API with the form data. The API returns a list of charging stations that match the user's search criteria. For each charging station in the list, React components are utilized to render a charging station card that displays relevant information about the station. Users can also easily favorite and un-favorite charging stations, which will save the charging station information to our databse.
 
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search-result-gif.gif" alt="animated" />
@@ -65,3 +72,9 @@ Sign up form, user can create a new account by providing requested information.
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/signupform.gif" alt="animated" />
 </p> 
+
+
+
+
+<!-- ## Goal -->
+<!-- ## Set Up Instructions  -->
