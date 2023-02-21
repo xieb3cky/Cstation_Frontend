@@ -3,23 +3,37 @@ import * as AiIcons from 'react-icons/ai';
 import UserContext from "../auth/UserContext";
 import "./StationCard.css";
 
+/** 
+ *  The StationCard component takes the following props: 
+ * 
+ *   {id, name, address, state, postcode, phone, email, available, charger_type, lat, and long} 
+ *  
+ *  These props are used to display information about each charging station in the list.
+ * 
+ *  UserContext : favorited, favoriteStation, deleteFavorite functions.
+ *  
+ *  favorited --> check if the charging station is already favorited.
+ *  favoriteStation --> add favorited station to user's favorites in our database. 
+ *  deleteFavorite -->  remove station from user's favorites. 
+ * 
+ *  Routed at '/stations'
+ * 
+ * App --> MainRoutes -> StationList --> StationCard
+ */
 
 
 function StationCard({ id, name, address, state, postcode, phone, email, available, charger_type, lat, long }) {
+
     const { favorited, favoriteStation, deleteFavorite } = useContext(UserContext);
     const [favorite, setFavorite] = useState(false);
 
+    // concact address + sate + postcode to a complete address
     let address_complete;
     if (state && postcode) {
         address_complete = `${address} ${state} ${postcode}`;
     } else {
-        address_complete = address
-    }
-
-
-    console.log(id)
-
-
+        address_complete = address;
+    };
 
     useEffect(() => {
         if (favorited(id)) {
@@ -27,16 +41,22 @@ function StationCard({ id, name, address, state, postcode, phone, email, availab
         }
     }, [])
 
-
+    /**
+     *  handleFavorite function is called when the "Favorite" button is clicked. 
+     * 
+     *  Checks if station has been already favorited with favorited() function, passing in station ID.
+     *  
+     *  If station is already part of favorites --> delete from favorte list with deleteFavorite() function, 
+     *   passing in station ID and set favorite state of false. 
+     * 
+     *  Else if not already favorited --> favorite the station: saves station to our database & add station to user's favorites list.
+     * 
+     */
     async function handleFavorite(evt) {
-        //check if already favorited
-        console.log(id)
         if (favorited(id)) {
             deleteFavorite(id)
-            console.log("already favorited, can't favorite again!")
             setFavorite(!favorite);
         } else {
-            //if not favorite, favorite the station
             const data = {
                 id: id,
                 name: name,
@@ -49,9 +69,7 @@ function StationCard({ id, name, address, state, postcode, phone, email, availab
                 email: email
             }
             favoriteStation(data);
-            //change style base on favorited status
             setFavorite(!favorite);
-
         }
     }
     return (
@@ -88,7 +106,7 @@ function StationCard({ id, name, address, state, postcode, phone, email, availab
             <div className="general">
                 <h1>{name}</h1>
                 <a className="address-link" href={`https://www.google.com/maps?daddr=${lat},${long}`}
-                    target="_blank">📍 {address_complete}</a>
+                    target="_blank">{address_complete}</a>
 
 
             </div>

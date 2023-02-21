@@ -8,7 +8,7 @@ const libraries = ["places"];
 
 
 function Map({ stations }) {
-    console.log(process.env.REACT_APP_GOOGLE_KEY)
+
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
         libraries,
@@ -20,8 +20,17 @@ function Map({ stations }) {
     let markers = [];
 
     if (stations) {
+        let lat;
+        let lng;
         stations.forEach((s) => {
-            markers.push({ "lat": Number(s["AddressInfo"]["Latitude"]), "lng": Number(s["AddressInfo"]["Longitude"]) })
+            if ("lat" in s) {
+                lat = Number(s.lat);
+                lng = Number(s.long);
+            } else {
+                lat = Number(s["AddressInfo"]["Latitude"]);
+                lng = Number(s["AddressInfo"]["Longitude"]);
+            }
+            markers.push({ lat, lng })
         })
 
     }
@@ -41,21 +50,18 @@ function Home({ markers }) {
     return (
         <div>
             {
-                markers.length > 0 ?
-                    (<GoogleMap zoom={14} center={markers[0]} mapContainerClassName="map-container" options={mapOptions}>
-                        <div>
-                            {
-                                markers.map(m => (
-                                    <MarkerF
-                                        position={m}
-                                    />
-                                ))
-                            }
-                        </div>
-                    </GoogleMap>) :
-                    (<GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
-                        <MarkerF position={center} />
-                    </GoogleMap >)
+                markers.length > 0 &&
+                (<GoogleMap zoom={12} center={markers[0]} mapContainerClassName="map-container" options={mapOptions}>
+                    <div>
+                        {
+                            markers.map(m => (
+                                <MarkerF
+                                    position={m}
+                                />
+                            ))
+                        }
+                    </div>
+                </GoogleMap>)
             }
         </div>
     )

@@ -1,88 +1,79 @@
-import React, { useContext, useState, useEffect } from "react";
-// import { Link, NavLink } from "react-router-dom";
-import "./Homepage.css";
+import React, { useContext } from "react";
 import Map from "../search/Map";
 import UserContext from "../auth/UserContext";
-import video from "./ev-video2.mp4";
-import CstationAPI from "../api/api";
 import StationCard from "../stations/StationCard";
-import "../search/Map.css"
+import video from "./ev-video2.mp4";
+import "./Homepage.css";
 
-/** Homepage of site.
+/** Homepage of the site.
  *
- * Shows welcome message or login/register buttons.
+ * Takes in a single parameter 'search' function. 
+ * 
+ * User context : currUser & favStationInfo (list of user's favorited stations information)
+ * 
+ * If verified user is logged in ==> renders loggedInHome() , else  ==> loggedOutHome(). 
+ * 
+ * Routed at '/'
  *
- * Routed at /
- *
- * Routes -> Homepage
+ * App --> MainRoutes -> Homepage --> Map & StationCard
+ * 
  */
 
 function Homepage({ search }) {
     const { currUser, favStationInfo } = useContext(UserContext);
 
-    // const [favStationInfo, setFavStations] = useState([]);
-
     console.debug("Homepage", "currentUser=", currUser);
-    // Get charging station info for each of user's favorites
-    // useEffect(() => {
-    //     async function getFavStations() {
-    //         if (currUser) {
-    //             const res = await CstationAPI.getAllFavorites(currUser.id)
-    //             setFavStations(res)
-    //         }
-    //     }
-    //     getFavStations()
-    // }, [currUser])
-    // console.log(favStationInfo.result)
-    // favStationInfo.result.map((s) => {
-    //     console.log(s["id"])
-    //     console.log(s["name"])
-    // })
 
+    /**
+     * Function that displays map and user's list of favorited charging stations. 
+     * 
+     * @returns:
+     * - Map with makers of favorited station's lat & long.
+     * - StationCard component, displaying station's relevant information {id, name, address, phone, email, available, charger type}
+     * 
+     */
 
-    // useEffect(() => {
-
-    //     getFavStationInfo();
-    //     console.log(favStationInfo)
-
-
-    // }, [])
-
-
-
-    // console.log(favorites)
     const loggedInHome = () => {
         return <div>
-            {/* <div className="fullmap">
-                <Map />
-            </div> */}
-
-            <div className="citems">
-
-                {favStationInfo.result &&
-                    <div className="">
-                        {favStationInfo.result.map(s => (
-                            <StationCard
-                                key={s.id}
-                                id={s.id}
-                                name={s.name}
-                                address={s.address}
-                                phone={s.phone}
-                                email={s.email}
-                                available={s.available}
-                                charger_type={s.charger_type}
-                                lat={s.lat}
-                                long={s.long}
-                            />
-                        ))}
+            {favStationInfo.result &&
+                <>
+                    <div className="fullmap">
+                        <Map stations={favStationInfo.result} />
                     </div>
-                }
-            </div>
 
-        </div>
+                    <div className="citems">
+                        <div className="">
+                            {favStationInfo.result.map(s => (
+                                <StationCard
+                                    key={s.id}
+                                    id={s.id}
+                                    name={s.name}
+                                    address={s.address}
+                                    phone={s.phone}
+                                    email={s.email}
+                                    available={s.available}
+                                    charger_type={s.charger_type}
+                                    lat={s.lat}
+                                    long={s.long}
+                                />
+                            ))}
+                        </div>
+
+                    </div>
+                </>
+            }
+        </div >
     }
 
-
+    /**
+       * Function that displays instruction for search or option to conduct a quick search.
+       * 
+       * @returns:
+       * - Instructions on how to search for electric chargers.
+       * - Video background.
+       * - Quick search option.
+       * 
+       */
 
     const loggedOutHome = () => {
         return <div>
@@ -91,7 +82,6 @@ function Homepage({ search }) {
             </video>
             <div class="landing-page">
                 <div class="landing-container">
-
                     <div class="info">
                         <h1>Search Electric Chargers Near You</h1>
                         <p>1. Enter your address</p>
@@ -106,6 +96,10 @@ function Homepage({ search }) {
         </div>
     }
 
+    /**
+     * Logic to check if there's currUser logged in && favStationsInfo render loggedInHome function, 
+     * else ==> loggedOutHome function.
+     */
     return (
         <>
             {currUser && favStationInfo ? loggedInHome() : loggedOutHome()}
