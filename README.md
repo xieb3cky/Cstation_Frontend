@@ -58,7 +58,7 @@ The search form displays an autocomplete input box that offers location-based su
 When a user submits a search form, the backend sends a GET request to the Open Charge Map API with the form data. The API returns a list of charging stations that match the user's search criteria. For each charging station in the list, React components are utilized to render a charging station card that displays relevant information about the station. Users can also easily favorite and un-favorite charging stations, which will save the charging station information to our databse.
 
 <p align="center">
-  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/results-gif.gif" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/resgif.gif" alt="animated" />
 </p> 
 
 ### Log In 
