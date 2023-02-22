@@ -64,7 +64,6 @@ function App() {
     async function getFavStations() {
       if (currUser) {
         const res = await CstationAPI.getAllFavorites(currUser.id);
-        console.log(res)
         setFavStations(res);
 
       }
@@ -148,6 +147,7 @@ function App() {
   async function favoriteStation(data) {
     if (favorited(data.id)) return;
     setfavorites(new Set([...favorites, data.id]));
+    //add user id to data --> sent to backend
     data["user_id"] = currUser.id;
     let res = await CstationAPI.favorite(data);
     return { success: true };
@@ -161,9 +161,12 @@ function App() {
   */
 
   async function deleteFavorite(id) {
+    //covert set to a array to filter out the station ID that is un-favorited
     let favorites_ = [...favorites]
 
     favorites_ = favorites_.filter((f) => f != id)
+
+    //sent data {user ID & station ID} to backend to remove from our DB
     const data = {
       user_id: currUser.id,
       station_id: id

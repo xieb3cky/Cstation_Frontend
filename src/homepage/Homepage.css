@@ -7,25 +7,22 @@
     position: fixed;
     left: 0;
     right: 0;
-    /* top: 10vh; */
     bottom: 0;
     z-index: -1;
 }
 
-/* Start Landing Page */
+
 
 .landing-page {
     width: 100vw;
     height: 90vh;
     position: fixed;
-    /* background: linear-gradient(rgb(126, 147, 167), rgba(126, 147, 167, 0.616)); */
 }
 
 
 .landing-container {
     width: 90%;
     height: 70%;
-    /* padding-right: 15px; */
     padding-left: 3rem;
     margin: 5rem;
 }
@@ -96,5 +93,18 @@
 }
 
 
+.citems-favorites-home {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    width: 350px;
+    height: 40px;
+    background: #6b63ff96;
+    border-radius: 20px;
+}
 
-/* End Landing Page */
+.citems-favorites-home:hover {
+    box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.4);
+    transform: translate(-2px);
+    cursor: pointer;
+}

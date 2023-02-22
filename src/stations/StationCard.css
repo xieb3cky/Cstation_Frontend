@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-/* .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-} */
-
 .card {
     width: 350px;
     height: 120px;
@@ -21,7 +14,7 @@
 
 .card h1 {
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     padding: 10px;
     left: 15px;
 }
@@ -35,13 +28,6 @@
     overflow: hidden;
     z-index: 2;
 }
-
-
-/* .card:hover .additional {
-    width: 100%;
-    border-radius: 0 5px 5px 0;
-} */
-
 
 .additional:hover {
     width: 100%;
@@ -68,13 +54,12 @@
 
 .card .additional .more-info .user-card .level,
 .card .additional .more-info .user-card .points {
-    /* top: 15%; */
     color: #fff;
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-size: 0.65em;
     font-weight: bold;
     background: rgba(0, 0, 0, 0.15);
-    padding: 0.125rem 0.75rem;
+    padding: 0.125rem 0.70rem;
     border-radius: 100px;
     white-space: nowrap;
     left: 9px;
@@ -87,13 +72,13 @@
 
 .card .additional .more-info .user-card .avail {
     position: absolute;
-    top: 16%;
+    top: 20%;
     left: 25%;
     border-radius: 90px;
-    border: 1px solid black;
+    border: 1px white;
     width: 50px;
     height: 50px;
-    background-color: #fff;
+    background-color: white;
 }
 
 .card .additional .more-info .user-card .avail h1 {
@@ -103,26 +88,26 @@
 
 .card .additional .more-info .user-card .points {
     position: absolute;
+    font-style: italic;
     font-size: 0.5rem;
     top: 70%;
+    left: 15%;
+    font-style: italic;
+
 }
 
+.card .additional .more-info .user-card .points:hover {
+    box-shadow: rgba(235, 229, 229, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
 
 .card .additional .more-info {
     width: 300px;
     float: left;
     position: absolute;
-    /* left: 50px; */
     margin-top: 1rem;
     height: 100%;
 }
-
-/* 
-.card .additional .more-info h1 {
-    color: #fff;
-    margin-bottom: 0;
-    font-size: 0.75rem;
-} */
 
 
 .card .additional .coords {
@@ -170,7 +155,6 @@
 }
 
 .card .general {
-
     width: 75%;
     height: 100%;
     position: absolute;
@@ -179,274 +163,44 @@
     z-index: 1;
     box-sizing: border-box;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
 
 }
 
 .card .general a {
     font-size: 0.8rem;
-    text-align: center;
+    text-align: right;
     padding: 10px;
 }
 
-
-
-/*Favorites Star Styling*/
-
-
-.container {
-    margin-bottom: 15px;
+.card .general a:hover {
+    box-shadow: #4f81c7, 0 8px 15px;
+    transform: translateY(-5px);
+    color: #4f81c7;
 }
 
-.rating {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    overflow: hidden;
-    flex-direction: row-reverse;
-    height: 150px;
-    position: relative;
-}
-
-.rating-0 {
-    filter: grayscale(100%);
-}
-
-.rating>input {
-    display: none;
-}
-
-.rating>label {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    margin-top: auto;
-}
-
-
-/*heart styles*/
-
-/* body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    margin: 0;
-} */
-.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-}
-
-[class^="fa"] {
-    font-style: normal;
-}
-
-input[name^="like"],
-input[name^="favourite"] {
-    display: none;
-}
-
-input[name^="like"]+label[for],
-input[name^="favourite"]+label[for] {
-    background-color: #f8888e;
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    border-radius: 0.25em;
-    color: #FFF;
-    cursor: pointer;
-    font-weight: 300;
-    margin: 0.35em;
-    padding: 6px 12px;
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear;
-}
-
-input[name^="favourite"]+label[for] {
-    background-color: #FACE1F;
-}
-
-input[name^="like"]+label[for]:hover,
-input[name^="like"]+label[for]:focus,
-input[name^="favourite"]+label[for]:hover,
-input[name^="favourite"]+label[for]:focus {
-    background-color: #ff6770;
-    outline: 0;
-}
-
-input[name^="favourite"]+label[for]:hover,
-input[name^="favourite"]+label[for]:focus {
-    background-color: #FACE1F;
-}
-
-/*start transparent button*/
-input[name^="like"]+label[for].transparent {
-    background-color: transparent;
-    color: #FF6770;
-}
-
-input[name^="favourite"]+label[for].transparent {
-    background-color: transparent;
-    color: #FACE1F;
-}
-
-input[name^="like"]+label[for].transparent:hover,
-input[name^="like"]+label[for].transparent:focus,
-input[name^="favourite"]+label[for].transparent:hover,
-input[name^="favourite"]+label[for].transparent:focus {
-    color: #FF6770;
-}
-
-input[name^="favourite"]+label[for].transparent:hover,
-input[name^="favourite"]+label[for].transparent:focus {
-    color: #FACE1F;
-}
-
-input[name^="like"]+label[for].transparent:hover .fa-heart,
-input[name^="like"]+label[for].transparent:focus .fa-heart,
-input[name^="favourite"]+label[for].transparent:hover .fa-star,
-input[name^="favourite"]+label[for].transparent:focus .fa-star {
-    opacity: 0.25;
-}
-
-input[name^="favourite"]+label[for].transparent :hover,
-input[name^="favourite"]+label[for].transparent :focus {
-    color: #FACE1F;
-}
-
-/*end transparent button*/
-
-/*start labels*/
-input[name^="like"]+label[for] .do,
-input[name^="like"]+label[for] .done,
-input[name^="favourite"]+label[for] .do,
-input[name^="favourite"]+label[for] .done {
-    margin-left: 0.35em;
-}
-
-input[name^="like"]+label[for] .done,
-input[name^="favourite"]+label[for] .done,
-input[name^="like"]:checked+label[for] .do,
-input[name^="favourite"]:checked+label[for] .do {
-    display: none;
-}
-
-input[name^="like"]+label[for] .do,
-input[name^="favourite"]+label[for] .do,
-input[name^="like"]:checked+label[for] .done,
-input[name^="favourite"]:checked+label[for] .done {
-    display: inline-block;
-}
-
-/*end labels*/
-
-/*start icons*/
-input[name^="like"]+label[for] .fa,
-input[name^="favourite"]+label[for] .fa {
-    display: inline-block;
-    position: relative;
-}
-
-input[name^="like"]+label[for] .fa .fa-heart-o,
-input[name^="favourite"]+label[for] .fa .fa-star-o {
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear;
-}
-
-input[name^="like"]+label[for] .fa .fa-heart,
-input[name^="favourite"]+label[for] .fa .fa-star {
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    top: 0;
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear
-}
-
-input[name^="like"]+label[for] .fa .fa-heart.fx {
-    color: #D91E3C;
-}
-
-input[name^="favourite"]+label[for] .fa .fa-star.fx {
-    color: #F4B800;
-}
-
-input[name^="like"]:checked+label[for] .fa .fa-heart-o,
-input[name^="favourite"]:checked+label[for] .fa .fa-star-o {
-    opacity: 0;
-}
-
-input[name^="like"]:checked+label[for] .fa .fa-heart,
-input[name^="favourite"]:checked+label[for] .fa .fa-star {
-    opacity: 1;
-}
-
-input[name^="like"]:checked+label[for] .fa .fa-heart.fx,
-input[name^="favourite"]:checked+label[for] .fa .fa-star.fx {
-    -moz-animation: expand .65s cubic-bezier(.43, .475, 1, .08);
-    -o-animation: expand .65s cubic-bezier(.43, .475, 1, .08);
-    -webkit-animation: expand .65s cubic-bezier(.43, .475, 1, .08);
-    animation: expand .65s cubic-bezier(.43, .475, 1, .08);
-    opacity: 0;
-}
-
-/*end icons*/
-
-/*start animation*/
-@keyframes expand {
-    0% {
-        -moz-transform: scale(1, 1);
-        -o-transform: scale(1, 1);
-        -webkit-transform: scale(1, 1);
-        transform: scale(1, 1);
-    }
-
-    50% {
-        -moz-transform: scale(2, 2);
-        -o-transform: scale(2, 2);
-        -webkit-transform: scale(2, 2);
-        transform: scale(2, 2);
-        opacity: .7;
-    }
-
-    100% {
-        -moz-transform: scale(6, 6);
-        -o-transform: scale(6, 6);
-        -webkit-transform: scale(6, 6);
-        transform: scale(6, 6);
-        opacity: 0;
-    }
-}
-
-/*end animation*/
 
 
 .fav {
     appearance: none;
-    background-color: transparent;
-    border: 2px solid #1A1A1A;
+    background-color: #f6e198;
+    border: 2px solid #f6e198;
     border-radius: 15px;
     box-sizing: border-box;
-    color: black;
+    color: #fd5c63;
     cursor: pointer;
     display: inline-block;
-    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 10px;
+    font-family: inherit;
+    font-size: 0.6rem;
     font-weight: 600;
     line-height: normal;
-    margin: 0;
-    min-height: 10px;
-    min-width: 0;
-    outline: none;
     padding: 7px 10px;
     text-align: center;
-    text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    will-change: transform;
-    margin-top: 15px;
+    margin-top: 0.5rem;
+    margin-left: 4.5rem;
+
 }
 
 .fav:disabled {
@@ -456,12 +210,22 @@ input[name^="favourite"]:checked+label[for] .fa .fa-star.fx {
 .fav:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
-    background-color: white;
-    border: 2px solid #fd5c63;
-    color: #fd5c63;
+    background-color: #8d62f7;
+    border: 2px solid #8d62f7;
+    color: white;
 }
 
-.yes {
-    border: 2px solid #fd5c63;
+.favorited {
+    border: 2px solid #8d62f7;
+    background-color: #8d62f7;
+    color: white;
+}
+
+.map-icon {
     color: #fd5c63;
+    margin-right: 10px;
+}
+
+.react-icons {
+    margin-right: 5px;
 }

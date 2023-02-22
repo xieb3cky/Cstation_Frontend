@@ -42,11 +42,12 @@ function Homepage({ search }) {
                     </div>
 
                     <div className="citems">
-                        <div className="">
+                        <div>
+                            <h1 className="citems-favorites-home">Favorites</h1>
                             {favStationInfo.result.map(s => (
                                 <StationCard
                                     key={s.id}
-                                    id={s.id}
+                                    id={s.station_id}
                                     name={s.name}
                                     address={s.address}
                                     phone={s.phone}
@@ -83,7 +84,7 @@ function Homepage({ search }) {
             <div class="landing-page">
                 <div class="landing-container">
                     <div class="info">
-                        <h1>Search Electric Chargers Near You</h1>
+                        <h1>Search Electric Car Chargers Near You</h1>
                         <p>1. Enter your address</p>
                         <p>2. Select charger type</p>
                         <p>3. Select max result</p>

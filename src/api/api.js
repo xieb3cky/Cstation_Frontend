@@ -27,7 +27,6 @@ class CstationAPI {
 
         try {
             const result = await axios(url, { method: method, data: data, params: params, headers: headers });
-            console.log(result)
             return result;
         } catch (err) {
             console.error("API Error:", err.response);

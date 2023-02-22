@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import * as AiIcons from 'react-icons/ai';
+import *  as BsIcons from "react-icons/bs";
+import *  as FaIcons from "react-icons/fa";
 import UserContext from "../auth/UserContext";
 import "./StationCard.css";
 
@@ -22,7 +24,7 @@ import "./StationCard.css";
  */
 
 
-function StationCard({ id, name, address, state, postcode, phone, email, available, charger_type, lat, long }) {
+function StationCard({ id, name, address, state, postcode, phone, email, available, charger_type, lat, long, station_id }) {
 
     const { favorited, favoriteStation, deleteFavorite } = useContext(UserContext);
     const [favorite, setFavorite] = useState(false);
@@ -99,16 +101,19 @@ function StationCard({ id, name, address, state, postcode, phone, email, availab
                         <span>Port : </span>
                         {charger_type ? (<span>{charger_type}</span>) : (<span> N/A</span>)}
                     </div>
-                    <button className={favorite ? "fav  yes" : "fav"} onClick={handleFavorite}>  <AiIcons.AiFillHeart />Favorite</button>
+                    {favorite ?
+                        (<button className="fav  favorited" onClick={handleFavorite}><FaIcons.FaHeartBroken className="react-icons " />Un-Favorite</button>)
+                        : (<button className="fav" onClick={handleFavorite}> <AiIcons.AiFillHeart className="react-icons " />Favorite</button>)}
+
 
                 </div>
             </div>
             <div className="general">
                 <h1>{name}</h1>
                 <a className="address-link" href={`https://www.google.com/maps?daddr=${lat},${long}`}
-                    target="_blank">{address_complete}</a>
+                    target="_blank"><BsIcons.BsFillPinMapFill className="map-icon" />{address_complete}</a>
             </div>
-        </div>
+        </div >
     );
 
 }
