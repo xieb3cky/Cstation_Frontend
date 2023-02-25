@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 /** Signup form.
  *
  * Shows form and manages update to state on changes.
+ * 
  * On submission:
  * - calls signup function prop
  * - redirects to home route "/"
  *
- * Routes -> SignupForm 
+ * App --> MainRoutes -> LoginForm 
+ * 
  * Routed as "/signup"
  */
 
@@ -70,11 +72,20 @@ function SignupForm({ signup }) {
         <div className="flex center body-container">
             <div className="page-grid grid">
                 <section className="banner grid center">
+                    <div class="road">
+                        <div class="taxi">
+                            <div class="light_beam"></div>
+                            <div class="side_mirror"></div>
+                            <span>
+                                <b></b>
+                                <i></i>
+                            </span>
+                        </div>
+                    </div>
                 </section>
-
                 <section className="form-wrapper grid center">
                     <form className="form-section" onSubmit={handleSubmit}>
-                        <div className="header">
+                        <div className="header" >
                             <h1>Hello there! <span>👋</span></h1>
                             <p>Please enter your details.</p>
                         </div>
