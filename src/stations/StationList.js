@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import StationCard from "./StationCard";
-import Map from "../search/Map";
+import Map from "../search/Map"
 import "./StationList.css";
+import UserContext from "../auth/UserContext";
 
-/** Render a list of charging stations as well as the map of the area with the location of the charging stations.
+/** Render a list of charging stations and map of the area w/ the location of the charging stations.
  *
  * Takes in a single parameter 'stations', a array of station objects. 
  * 
@@ -13,12 +14,14 @@ import "./StationList.css";
  * 
  */
 function StationList({ stations }) {
+    const { loading } = useContext(UserContext);
 
     console.debug("StationList");
 
     return (
         <div>
-            {stations &&
+
+            {!loading && stations &&
                 <>
                     < div className="fullmap" >
                         < Map stations={stations} />
