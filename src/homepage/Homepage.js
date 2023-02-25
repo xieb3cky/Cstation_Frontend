@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Map from "../search/Map";
 import UserContext from "../auth/UserContext";
 import StationCard from "../stations/StationCard";
 import video from "./ev-video2.mp4";
 import "./Homepage.css";
+import Loading from "../common/Loading";
 
 /** Homepage of the site.
  *
@@ -20,9 +22,36 @@ import "./Homepage.css";
  */
 
 function Homepage({ search }) {
-    const { currUser, favStationInfo } = useContext(UserContext);
+    const { currUser, favStationInfo, loading, setLoading } = useContext(UserContext);
+
+    const navigate = useNavigate();
 
     console.debug("Homepage", "currentUser=", currUser);
+
+
+
+    async function handleQuickSearch() {
+        setLoading(true);
+
+        let lat;
+        let lng;
+
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+            const data = {
+                lat: lat,
+                lng: lng
+            }
+            let result = await search(data);
+            if (result.success) {
+                setTimeout(() => {
+                    setLoading(false);
+                    navigate("/stations");
+                }, 4000)
+            }
+        })
+    }
 
     /**
      * Function that displays map and user's list of favorited charging stations. 
@@ -35,6 +64,7 @@ function Homepage({ search }) {
 
     const loggedInHome = () => {
         return <div>
+
             {favStationInfo.result &&
                 <>
                     <div className="fullmap">
@@ -78,23 +108,28 @@ function Homepage({ search }) {
 
     const loggedOutHome = () => {
         return <div>
-            <video id="background-video" autoPlay loop muted>
-                <source src={video} type="video/mp4" />
-            </video>
-            <div class="landing-page">
-                <div class="landing-container">
-                    <div class="info">
-                        <h1>Search Electric Car Chargers Near You</h1>
-                        <p>1. Enter your address</p>
-                        <p>2. Select charger type</p>
-                        <p>3. Select max result</p>
-                        <p>4. Hit Search</p>
-                        <div className="or-option"> OR </div>
-                        <button>Quick Search</button>
+            {loading ? (<Loading />) : (
+                <>
+                    <video id="background-video" autoPlay loop muted>
+                        <source src={video} type="video/mp4" />
+                    </video>
+                    <div class="landing-page">
+                        <div class="landing-container">
+                            <div class="info">
+                                <h1>Search Electric Car Chargers Near You</h1>
+                                <p>1. Enter your address</p>
+                                <p>2. Select charger type</p>
+                                <p>3. Select max result</p>
+                                <p>4. Hit Search</p>
+                                <div className="or-option"> OR </div>
+                                <button onClick={handleQuickSearch}>Quick Search</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </>)
+            }
+
+        </div >
     }
 
     /**
