@@ -58,6 +58,18 @@ function LoginForm({ login }) {
         <div className="flex center body-container">
             <div className="page-grid grid">
                 <section className="banner grid center">
+                    <section className="banner grid center">
+                        <div class="road">
+                            <div class="taxi">
+                                <div class="light_beam"></div>
+                                <div class="side_mirror"></div>
+                                <span>
+                                    <b></b>
+                                    <i></i>
+                                </span>
+                            </div>
+                        </div>
+                    </section>
                 </section>
 
                 <section className="form-wrapper grid center">
