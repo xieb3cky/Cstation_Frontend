@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 /** Login form.
  *
  * Shows form and manages update to state on changes.
+ * 
  * On submission:
  * - calls login function prop
  * - redirects to home route "/"
  *
- * Routes -> LoginForm -> Alert
- * Routed as /login
+ * App --> MainRoutes -> LoginForm 
+ * 
+ * Routed as '/login'
  */
 
 function LoginForm({ login }) {
