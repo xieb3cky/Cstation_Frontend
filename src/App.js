@@ -13,6 +13,28 @@ import jwt from "jsonwebtoken";
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_STORAGE_ID = "cstation-token";
 
+/** C-Station application.
+ *
+ * - infoLoaded: manage if user info is loaded 
+ * 
+ * - favorites: represents user's list of favorite charging stations IDs.
+ * 
+ * - favStationInfo: represents favorite charging station information.
+ *
+ * - currUser: user obj from API. If someone is logged in. 
+ *  This is passed around via context throughout app.
+ *
+ * - token: for logged in users, this is their authentication JWT.
+ *   Is required to be set for most API calls. This is initially read from
+ *   localStorage and synced to there via the useLocalStorage hook.
+ * 
+ * -searchStation : list of search results from searches.
+ * 
+ * -loading: represent whether or not if the app is loading data, manages Loading battery animation.
+ *
+ * App -> Routes
+ */
+
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
@@ -51,7 +73,6 @@ function App() {
           let user_faves = currentUser.favorites.map((e) => e.id);
           let ff = new Set(user_faves);
           setfavorites(ff);
-
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
           setCurrUser(null);
