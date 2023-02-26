@@ -6,6 +6,8 @@ import NavBar from "./routes/NavBar";
 import MainRoutes from "./routes/MainRoutes";
 import CstationAPI from "./api/api";
 import UserContext from "./auth/UserContext";
+import Loading from "./common/Loading";
+
 import jwt from "jsonwebtoken";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -19,13 +21,19 @@ function App() {
   const [currUser, setCurrUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
   const [searchStations, setSearchStations] = useState();
+  const [loading, setLoading] = useState(false);
+
 
   console.debug(
     "App",
-    "infoLoaded=", infoLoaded,
+    "favorites", favorites,
+    "favStationInfo", favStationInfo,
+    "searchStations", searchStations,
+    "loading", loading,
     "currUser=", currUser,
     "token=", token,
   );
+
 
 
   useEffect(function loadUserInfo() {
@@ -51,10 +59,6 @@ function App() {
       }
       setInfoLoaded(true);
     }
-
-    // set infoLoaded to false while async getCurrentUser runs; once the
-    // data is fetched (or even if an error happens!), this will be set back
-    // to false to control the spinner.
     setInfoLoaded(false);
     getCurrentUser();
   }, [token]);
@@ -164,7 +168,7 @@ function App() {
     //covert set to a array to filter out the station ID that is un-favorited
     let favorites_ = [...favorites]
 
-    favorites_ = favorites_.filter((f) => f != id)
+    favorites_ = favorites_.filter((f) => f !== id)
 
     //sent data {user ID & station ID} to backend to remove from our DB
     const data = {
@@ -177,10 +181,12 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      <UserContext.Provider value={{ currUser, setCurrUser, favorites, favorited, favoriteStation, deleteFavorite, favStationInfo }}>
-        <NavBar signout={signout} signup={signup} searchFor={search} />
-        <MainRoutes login={login} signup={signup} search={search} stations={searchStations} />
+
+    < BrowserRouter >
+      <UserContext.Provider value={{ loading, setLoading, currUser, setCurrUser, favorites, favorited, favoriteStation, deleteFavorite, favStationInfo }}>
+        <NavBar signout={signout} signup={signup} search={search} stations={searchStations} />
+        {loading ? (<Loading />) : (<MainRoutes login={login} signup={signup} search={search} stations={searchStations} />)}
+
       </UserContext.Provider>
     </BrowserRouter >
   );
