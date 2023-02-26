@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Routes, Route, Navigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import UserContext from "../auth/UserContext";
 import Homepage from "../homepage/Homepage";
@@ -21,7 +20,7 @@ import SearchForm from "../search/SearchForm";
  * Visiting a non-existant route Navigates to the homepage.
  */
 
-function MainRoutes({ login, signup, search, stations, quickSearch }) {
+function MainRoutes({ login, signup, search, stations }) {
 
   console.debug(
     "Routes",
@@ -33,7 +32,7 @@ function MainRoutes({ login, signup, search, stations, quickSearch }) {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<Homepage search={search} stations={stations} quickSearch={quickSearch} />}>
+        <Route exact path="/" element={<Homepage search={search} stations={stations} />}>
         </Route>
         <Route exact path="/search" element={<SearchForm search={search} />}>
         </Route>
