@@ -1,21 +1,23 @@
 import { useMemo } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import { style } from "./mapStyles"
-
 import "./Map.css"
 
 const libraries = ["places"];
 
+/**
+ * Component renders Google Map with markers for each charging station locations.
+ * 
+ */
 
 function Map({ stations }) {
 
+    /** useLoadScript hook from the @react-google-maps/api library to load 
+     * the Google Maps JavaScript API with the places library.  */
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
         libraries,
     });
-
-    if (loadError) return "Error";
-    if (!isLoaded) return "Loading...";
 
     let markers = [];
 
@@ -37,6 +39,9 @@ function Map({ stations }) {
     return <Home markers={markers} />;
 }
 
+/**
+ * Home component that takes an array of markers as a prop and renders the Google Map with the markers using the GoogleMap and MarkerF components from @react-google-maps/api
+ */
 function Home({ markers }) {
 
     const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
