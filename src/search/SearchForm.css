@@ -36,12 +36,7 @@
 }
 
 .banner {
-    /* background: #8d62f7; */
-    /* background: #5c5470; */
-    /* background: #757a79; */
-    background: #393e46;
-
-    /*  */
+    background: #e3e3e3;
 }
 
 .banner img {
@@ -90,16 +85,17 @@
     line-height: 48px;
     padding: 0 1rem;
     width: 100%;
-    border-radius: 0.5rem;
-    border: 1px solid #c3c3c367;
+    border-radius: 0.75rem;
+    border: 2px solid #c3c3c367;
     box-shadow: -1px 2px 0 0.5px #c3c3c367;
+    transition: 0.5s;
 }
 
 .field input:focus {
-    border-style: solid;
-    border-radius: 0.5rem;
+    box-shadow: -1px 2px 0 0.5px #c3c3c367;
+    transition: 0.5s;
     border: 2px solid #8d62f7;
-    /* box-shadow: -1px 1px 0 0.5px #c3c3c367; */
+    background-color: #f9f7f7;
 }
 
 
@@ -133,14 +129,6 @@
 
 /*Radio Button styles*/
 
-.select {
-    /* height: 100vh; */
-    /* display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column; */
-
-}
 
 .select h2 {
     margin: 0 0 80px 0;
@@ -403,19 +391,6 @@
     background: #00bbf0;
     border-radius: 10px;
     overflow: hidden;
-    /* &:after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 60%;
-        transform: translate(-50%, -50%);
-        z-index: 100;
-        width: 6px;
-        height: 10px;
-        background: #29282b;
-        box-shadow: 0 -10px #1f5fff, 0 10px #df1b25;
-   }
-    */
 }
 
 .taxi span:before {

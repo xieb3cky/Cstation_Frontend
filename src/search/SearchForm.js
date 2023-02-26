@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AutoComplete from "./AutoComplete";
 import styled from 'styled-components';
-// import Map from "./Map";
 import "./SearchForm.css"
+import Loading from "../common/Loading";
 
 
 const Slider = styled.input.attrs({ type: 'range' })`
@@ -43,6 +43,7 @@ function SearchForm({ search }) {
         maxResult: 1
     });
     const [address, setAddress] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     /**Update address state when AutoComplete componennt returns an address [lat, long]  */
@@ -58,10 +59,14 @@ function SearchForm({ search }) {
      */
     async function handleSubmit(evt) {
         evt.preventDefault();
+        setLoading(true);
         if (address) {
             let result = await search(formData);
             if (result.success) {
-                navigate("/stations");
+                setTimeout(() => {
+                    setLoading(false);
+                    navigate("/stations");
+                }, 4000)
             } else {
                 setFormErrors(result.errors);
             }
@@ -84,84 +89,87 @@ function SearchForm({ search }) {
     };
 
     return (
-        <div className="flex center body-container">
-            <div className="page-grid grid">
-                <section className="banner grid center">
-                    <div class="road">
-                        <div class="taxi">
-                            <div class="light_beam"></div>
-                            <div class="side_mirror"></div>
-                            <span>
-                                <b></b>
-                                <i></i>
-                            </span>
-                        </div>
-                    </div>
-                </section>
-                <section className="form-wrapper grid center">
-                    <form className="form-section" onSubmit={handleSubmit}>
-                        <div className="header">
-                            <h1>👀  Find EV Chargers Near You  🔌</h1>
-                        </div>
-                        <div className="field">
-                            <label className="field-title">Address</label>
-                            <AutoComplete setAddress={setAddress} />
-                        </div>
-                        <div className="select field">
-                            <label className="field-title">Ports</label>
-                            <div className="radio-buttons">
-                                <div className="select-btn"> <label className="custom-radio">
-                                    <input type="radio" name="charger_type" value={27} onChange={handleChange} />
-                                    <span className="radio-btn tesla"
-                                    ><i className="las la-check"></i>
-                                        <div class="hobbies-icon">
-                                            <h3>Tesla</h3>
-                                        </div>
-                                    </span>
-                                </label></div>
-                                <div className="select-btn">  <label className="custom-radio">
-                                    <input type="radio" name="charger_type" value={1} onChange={handleChange} />
-                                    <span className="radio-btn jplug"
-                                    ><i className="las la-check"></i>
-                                        <div className="hobbies-icon">
-                                            <h3>J-Plug</h3>
-                                        </div>
-                                    </span>
-                                </label></div>
-                                <div className="select-btn" >  <label class="custom-radio">
-                                    <input type="radio" name="charger_type" value={32} onChange={handleChange} />
-                                    <span class="radio-btn ccs"
-                                    ><i class="las la-check"></i>
-                                        <div class="hobbies-icon">
-                                            <h3>CCS-1</h3>
-                                        </div>
-                                    </span>
-                                </label></div>
-                                <div className="select-btn" > <label class="custom-radio">
-                                    <input type="radio" name="charger_type" value={2} onChange={handleChange} />
-                                    <span class="radio-btn chad"
-                                    ><i class="las la-check"></i>
-                                        <div class="hobbies-icon">
-                                            <h3>Chademo</h3>
-                                        </div>
-                                    </span>
-                                </label></div>
-
-
+        <>
+            {loading ? (<Loading />) : (<div className="flex center body-container">
+                <div className="page-grid grid">
+                    <section className="banner grid center">
+                        <div class="road">
+                            <div class="taxi">
+                                <div class="light_beam"></div>
+                                <div class="side_mirror"></div>
+                                <span>
+                                    <b></b>
+                                    <i></i>
+                                </span>
                             </div>
                         </div>
-                        <div>
-                            <label className="field-title">Max Result</label>
-                            <h2 className="mm">{formData.maxResult}</h2>
-                            <div className="range">
-                                <Slider name="maxResult" min="1" max="10" value={formData.maxResult} onChange={handleChange} required />
+                    </section>
+                    <section className="form-wrapper grid center">
+                        <form className="form-section" onSubmit={handleSubmit}>
+                            <div className="header">
+                                <h1>👀  Find EV Chargers Near You  🔌</h1>
                             </div>
-                        </div>
-                        <button className="search-button">Search</button>
-                    </form>
-                </section>
-            </div>
-        </div >
+                            <div className="field">
+                                <label className="field-title">Address</label>
+                                <AutoComplete setAddress={setAddress} />
+                            </div>
+                            <div className="select field">
+                                <label className="field-title">Ports</label>
+                                <div className="radio-buttons">
+                                    <div className="select-btn"> <label className="custom-radio">
+                                        <input type="radio" name="charger_type" value={27} onChange={handleChange} />
+                                        <span className="radio-btn tesla"
+                                        ><i className="las la-check"></i>
+                                            <div class="hobbies-icon">
+                                                <h3>Tesla</h3>
+                                            </div>
+                                        </span>
+                                    </label></div>
+                                    <div className="select-btn">  <label className="custom-radio">
+                                        <input type="radio" name="charger_type" value={1} onChange={handleChange} />
+                                        <span className="radio-btn jplug"
+                                        ><i className="las la-check"></i>
+                                            <div className="hobbies-icon">
+                                                <h3>J-Plug</h3>
+                                            </div>
+                                        </span>
+                                    </label></div>
+                                    <div className="select-btn" >  <label class="custom-radio">
+                                        <input type="radio" name="charger_type" value={32} onChange={handleChange} />
+                                        <span class="radio-btn ccs"
+                                        ><i class="las la-check"></i>
+                                            <div class="hobbies-icon">
+                                                <h3>CCS-1</h3>
+                                            </div>
+                                        </span>
+                                    </label></div>
+                                    <div className="select-btn" > <label class="custom-radio">
+                                        <input type="radio" name="charger_type" value={2} onChange={handleChange} />
+                                        <span class="radio-btn chad"
+                                        ><i class="las la-check"></i>
+                                            <div class="hobbies-icon">
+                                                <h3>Chademo</h3>
+                                            </div>
+                                        </span>
+                                    </label></div>
+
+
+                                </div>
+                            </div>
+                            <div>
+                                <label className="field-title">Max Result</label>
+                                <h2 className="mm">{formData.maxResult}</h2>
+                                <div className="range">
+                                    <Slider name="maxResult" min="1" max="10" value={formData.maxResult} onChange={handleChange} required />
+                                </div>
+                            </div>
+                            <button className="search-button">Search</button>
+                        </form>
+                    </section>
+                </div>
+            </div >)
+            }
+        </>
     );
 }
 
