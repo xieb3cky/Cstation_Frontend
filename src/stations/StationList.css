@@ -21,7 +21,7 @@
 
 a {
     color: var(--accent);
-    text-decoration: none;
+    text-decoration: none !important;
     transition: all 0.3s ease-in-out;
 }
 
@@ -126,19 +126,20 @@ a:hover {
 }
 
 .btn-primary {
-    background: var(--accent);
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-top: 1.25rem;
+    cursor: pointer;
+    background: #f6e198;
+    line-height: 48px;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.btn-primary:hover {
+    background: #8d62f7;
     color: var(--primary);
-}
-
-.google-sign-in svg {
-    width: 18px;
-    height: auto;
-    margin-right: 1rem;
-}
-
-.pass-section {
-    gap: 2rem;
-    flex-wrap: wrap;
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -167,30 +168,6 @@ a:hover {
     display: none;
 }
 
-
-
-
-
-
-
-
-/*Favorites Star Styling*/
-
-
-
-/* * {
-    box-sizing: border-box;
-}
-
-.container {
-    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-} */
 
 .rating {
     display: flex;
