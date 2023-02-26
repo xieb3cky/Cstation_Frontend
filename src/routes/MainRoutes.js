@@ -18,13 +18,6 @@ import SearchForm from "../search/SearchForm";
 
 function MainRoutes({ login, signup, search, stations }) {
 
-  console.debug(
-    "Routes",
-    `login=${typeof login}`,
-    `register=${typeof register}`,
-  );
-
-
   return (
     <>
       <Routes>
