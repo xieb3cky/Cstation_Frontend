@@ -40,7 +40,9 @@ function Map({ stations }) {
 }
 
 /**
- * Home component that takes an array of markers as a prop and renders the Google Map with the markers using the GoogleMap and MarkerF components from @react-google-maps/api
+ * Home component accepts prop : array of markers &
+ *  renders the Google Map with the markers using the GoogleMap and MarkerF components from @react-google-maps/api.
+ * 
  */
 function Home({ markers }) {
 
