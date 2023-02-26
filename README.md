@@ -42,29 +42,36 @@ The application also offers tools to help users favorite/un-favorite and leave r
 ## Demo
 
 ### Homepage 
-Landing page consist of background video credit section located above. The navigation bar features various options, including search, quick search, log in, and sign up for easy access. Users can initiate a 'quick search' that leverages geolocation data to automatically search for charging stations near their current location. Alternatively, users can perform a more detailed 'search' that requires additional information, such as the user's location, desired charging station type, and maximum search results (limit to 10).
+Landing page consist of background video credit section located above. The navigation bar features various options, including search, quick search, log in, and sign up for easy access. Users can initiate a 'quick search' that takes user's current geolocation data to automatically search for charging stations nearby. Alternatively, users can perform a more detailed 'search' that requires additional information, such as the user's location, desired charger type, and maximum search results (limit to 10).
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/landing-pagegif.gif" alt="animated" />
 </p>
 
 ### Search Form 
 The search form displays an autocomplete input box that offers location-based suggestions and predictions as the user types. Once the user has entered their location, they can select from a variety of charger types, including popular options like Tesla, CCS1, CHAdeMO, and J-Plug. After specifying their charger type preferences, the user can set a maximum results parameter and hit search button!
-
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search.gif" alt="animated" />
 </p>
 
+### Quick Search
+Using the 'navigator.geolocation.getCurrentPosition()' method, we can automatically retrieve user's current geographic location (user must grant permission) and utilize the data to search for nearby charging stations. This eliminates the need for users to manually fill out a search form with location, maximum results, and charger type.
+<p align="center">
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search.gif" alt="animated" />
+</p>
+
+
 ### Results
 When a user submits a search form, the backend sends a GET request to the Open Charge Map API with the form data. The API returns a list of charging stations that match the user's search criteria. For each charging station in the list, React components are utilized to render a charging station card that displays relevant information about the station. Users can also easily favorite and un-favorite charging stations, which will save the charging station information to our databse.
-
 <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/resgif.gif" alt="animated" />
 </p> 
 
 ### Log In 
-Log in form, welcomes returning user and requires username and password.
+Log in form, welcomes returning user and requires username and password. 
+1. Once user submits their login credentials & backend authenticates user's identiy --> user is redirected to homepage, which displays a list of their favorited stations --> view more station information and click on address to a pop out window with Google Map direction. 
+2. Under profile tab, user can view their profile information, profile image, and edit this information. 
 <p align="center">
-  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/signin.gif" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/login-profile.gif" alt="animated" />
 </p> 
 
 ### Sign Up
