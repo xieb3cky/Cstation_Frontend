@@ -50,13 +50,13 @@ Landing page consist of background video credit section located above. The navig
 ### Search Form 
 The search form displays an autocomplete input box that offers location-based suggestions and predictions as the user types. Once the user has entered their location, they can select from a variety of charger types, including popular options like Tesla, CCS1, CHAdeMO, and J-Plug. After specifying their charger type preferences, the user can set a maximum results parameter and hit search button!
 <p align="center">
-  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search.gif" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/searchform.gif" alt="animated" />
 </p>
 
 ### Quick Search
 Using the 'navigator.geolocation.getCurrentPosition()' method, we can automatically retrieve user's current geographic location (user must grant permission) and utilize the data to search for nearby charging stations. This eliminates the need for users to manually fill out a search form with location, maximum results, and charger type.
 <p align="center">
-  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/search.gif" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/quickSearch.gif" alt="animated" />
 </p>
 
 
@@ -77,7 +77,7 @@ Log in form, welcomes returning user and requires username and password.
 ### Sign Up
 Sign up form, user can create a new account by providing the requested information. 
 <p align="center">
-  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/signupform.gif" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/signup.gif" alt="animated" />
 </p> 
 
 
