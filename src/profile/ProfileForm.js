@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import Alert from "../common/Alert";
 import CstationAPI from "../api/api";
 import UserContext from "../auth/UserContext";
-import { useNavigate } from "react-router-dom";
 import './ProfileForm.css'
 
 /** Profile editing form.
@@ -21,13 +20,10 @@ import './ProfileForm.css'
 
 function ProfileForm() {
     const { currUser, setCurrUser } = useContext(UserContext);
-
-
     const [formData, setFormData] = useState(null);
-
     const [formErrors, setFormErrors] = useState([]);
 
-    //set form data inputs to user's current information
+    //pre-fill form data inputs to user's current information
     useEffect(() => {
 
         if (currUser) {
@@ -101,77 +97,84 @@ function ProfileForm() {
     return (
 
         <div className="flex center body-container">
-            <div className="page-grid grid">
-                <section className="banner grid center">
-                </section>
-                {formData && <><section className="form-wrapper grid center">
-                    <form className="form-section" onSubmit={handleSubmit}>
-                        <div className="header-title">
-                            <h1>Update {formData.username} Information<span>✏️</span></h1>
+            {formData && <>
+                <div className="page-grid grid">
+                    <section className="banner grid center">
+                        <div id="card">
+                            <h1>{formData.username} </h1>
+                            <div id="avatar"></div>
+                            <div id="profile">
+                            </div>
                         </div>
-                        <div className="field">
-                            <label>First Name</label>
-                            <input
-                                name="firstName"
-                                className="form-control"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                placeholder="First Name"
+                    </section>
+                    <section className="form-wrapper grid center">
+                        <form className="form-section" onSubmit={handleSubmit}>
+                            <div className="header-title">
+                                <h1>Update Information<span>✏️</span></h1>
+                            </div>
+                            <div className="field">
+                                <label>First Name</label>
+                                <input
+                                    name="firstName"
+                                    className="form-control"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
+                                    placeholder="First Name"
 
-                            />
-                        </div>
-                        <div className="field">
-                            <label>Last Name</label>
-                            <input
-                                name="lastName"
-                                className="form-control"
-                                value={formData.lastName}
-                                onChange={handleChange}
-                                placeholder="Last Name"
-                            />
-                        </div>
-                        <div className="field">
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                className="form-control"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="Email"
-                            />
-                        </div>
-                        <div className="field">
-                            <label>Profile Image</label>
-                            <input
-                                name="profile_img"
-                                className="form-control"
-                                value={formData.profile_img}
-                                onChange={handleChange}
-                                placeholder="Profile Image URL"
-                            />
-                        </div>
+                                />
+                            </div>
+                            <div className="field">
+                                <label>Last Name</label>
+                                <input
+                                    name="lastName"
+                                    className="form-control"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
+                                    placeholder="Last Name"
+                                />
+                            </div>
+                            <div className="field">
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    className="form-control"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="Email"
+                                />
+                            </div>
+                            <div className="field">
+                                <label>Profile Image</label>
+                                <input
+                                    name="profile_img"
+                                    className="form-control"
+                                    value={formData.profile_img}
+                                    onChange={handleChange}
+                                    placeholder="Profile Image URL"
+                                />
+                            </div>
 
-                        <div className="field">
-                            <label>Re-enter password to make changes:</label>
-                            <input
-                                type="password"
-                                name="password"
-                                className="form-control"
-                                value={formData.password}
-                                onChange={handleChange}
-                                placeholder="Password"
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Update</button>
-                    </form>
-                </section></>}
-                {formErrors?.length
-                    ? <Alert type="danger" messages={formErrors} />
-                    : null
-                }
-
-            </div>
+                            <div className="field">
+                                <label>Re-enter password to make changes:</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    className="form-control"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    placeholder="Password"
+                                />
+                            </div>
+                            <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Update</button>
+                        </form>
+                    </section>
+                    {formErrors?.length
+                        ? <Alert type="danger" messages={formErrors} />
+                        : null
+                    }
+                </div>
+            </>}
         </div>
     );
 }
