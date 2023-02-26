@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import UserContext from "../auth/UserContext";
 
-/** "Higher-Order Component" for private routes.
- *
- * In routing component, use these instead of <Route ...>. This component
- * will check if there is a valid current user and only continues to the
- * route if so. If no user is present, Navigates to login form.
+/** This component will check if there is a valid current user and only continues to the
+ * route if so. If no user is present, Navigates to homepage "/".
  */
 
 function PrivateRoute({ children }) {
@@ -17,14 +14,11 @@ function PrivateRoute({ children }) {
     "PrivateRoute",
     "currentUser=", currUser,
   );
+
   if (!currUser) {
-    console.log("no user!")
-    return <Navigate to="/login" />
+    return <Navigate to="/" replace />;
   }
-
   return children;
-
-
 };
 
 export default PrivateRoute;

@@ -1,15 +1,11 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
-import UserContext from "../auth/UserContext";
 import Homepage from "../homepage/Homepage";
 import StationList from "../stations/StationList";
-
-
 import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
 import ProfileForm from "../profile/ProfileForm";
-
-// import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 import SearchForm from "../search/SearchForm";
 /** Site-wide routes.
@@ -42,7 +38,9 @@ function MainRoutes({ login, signup, search, stations }) {
         </Route>
         <Route exact path="/stations" element={<StationList stations={stations} search={search} />}>
         </Route>
-        <Route exact path="/profile" element={<ProfileForm />}>
+        <Route exact path="/profile" element={<PrivateRoute>
+          <ProfileForm />
+        </PrivateRoute>}>
         </Route>
       </Routes>
     </>
