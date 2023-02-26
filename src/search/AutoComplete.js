@@ -15,8 +15,17 @@ import {
 
 import "@reach/combobox/styles.css";
 
+/**
+ * Provides a search input field that auto-completes address using Google Place API.
+ * 
+ * @reach/combobox libraries, which provide the auto-complete functionality &
+ *  UI components for the search field.
+ * 
+ */
+
 const AutoComplete = ({ setAddress }) => {
 
+    /** The usePlacesAutocomplete manage the auto-complete suggestions and value of the search field. */
     const {
         ready,
         value,
@@ -25,10 +34,16 @@ const AutoComplete = ({ setAddress }) => {
         clearSuggestions,
     } = usePlacesAutocomplete();
 
+
     const handleInput = (e) => {
         setValue(e.target.value);
     };
 
+    /**
+     * Handle function as user types in the input box & selects a address (ex: JFK Airport)
+     * The getGeocode and getLatLng functions from use-places-autocomplete are used to get 
+     * the latitude and longitude of the address --> passed it to the setAddress function. 
+     */
     const handleSelect = async (address) => {
         setValue(address, false);
         clearSuggestions();
@@ -39,6 +54,11 @@ const AutoComplete = ({ setAddress }) => {
         setAddress({ lat, lng });
     };
 
+    /**
+     * The component renders a Combobox component from @reach/combobox,
+     *  wraps a ComboboxInput field & ComboboxPopover containing a ComboboxList of auto-complete suggestions. 
+     *  The onSelect prop of the Combobox component is set to the handleSelect function to handle the selection of an address.
+     */
 
     return (
         <Combobox onSelect={handleSelect}>
