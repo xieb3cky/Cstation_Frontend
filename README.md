@@ -1,21 +1,19 @@
 
 # C Station
-
-***** WORK IN PROGRESS ****
-
 Link to [Backend](https://github.com/xieb3cky/CStation-Backend) 
 
 ## Summary
-Easy-to-use solution for users who are searching for electric car charging stations near their current location.
+- **Easy-to-use** solution for users who are searching for electric car charging stations near their current or input location.
 
-Using geolocation data, the application presents users with charging stations based on their search criteria. Users can refine their search further by specifying electric charger type and maximum results. 
+- Using geolocation data, the application presents users with charging stations based on their search criteria. Users can refine their search further by specifying electric charger type and maximum results. 
 
-The application also offers tools to help users favorite/un-favorite and leave reviews for a charging station. The detailed reviews of charging stations can help other users make informed decisions, and they can also view relevant information for selecting charging stations.
+- The application also offers tools to help users **favorite/un-favorite** a charging station, allowing user to quickly access a station and view relevant information.
 
 ## Technologies
  - React
  - JavaScript
  - Node.js/Express
+ - PostgreSQL
 
 
 ## APIs
@@ -24,8 +22,8 @@ The application also offers tools to help users favorite/un-favorite and leave r
    - Search parameters : {latitude, longitude, charger type, max result} => sent to Open Charger Map API.
    - The API responds with list of charging stations based on criteria. 
  - [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview)
-   - Utilized to create custom map with markers to display the location of each charging station on a Google Map.
-   - Places library's autocomplete feature offers a convenient "type-ahead-search behavior" that enables users to quickly find matching full words and substrings. With the ability to resolve place names, addresses, and codes, it simplifies the search process for users.
+   - Creates a custom map with markers to display the location of each charging station on a Google Map.
+   - Places library's autocomplete feature offers a convenient **"type-ahead-search behavior"** that enables users to quickly find matching full words and substrings. With the ability to resolve place names, addresses, and codes, it *simplifies* the search process for users.
 
 
 
@@ -38,9 +36,7 @@ The application also offers tools to help users favorite/un-favorite and leave r
  - New user registration
  - Log in/log out for returing user
  - Save/favorite a charging station for future reference
- - Leave reviews for a charging station (***work in progress***)
- - Search for electric car chargers base on user's input geo location
-  
+ - Search for electric car chargers base on user's input or current location
 ## Demo
 
 ### Homepage 
@@ -83,7 +79,23 @@ Sign up form, user can create a new account by providing the requested informati
 </p> 
 
 
+## Set Up
+1. Clone the repository to your local machine:
+```bash
+git clone <repository-url>
+```
+2. Install the required dependencies:
+```bash
+cd <project-folder>
+npm install
+```
+3. Start the development server:
+```bash
+npm start
+```
 
-
-<!-- ## Goal -->
-<!-- ## Set Up Instructions  -->
+## Goal 
+Support and promote use of electric cars/sustainable transporation. Electric cars are more environmentally friendly than traditional gasoline-powered cars because electric cars: 
+1. produce zero emissions at the tailpipe, which makes them much cleaner than gasoline-powered cars. This can help to improve air quality and reduce greenhouse gas emissions, which can have significant environmental benefits.
+2. have lower operating costs compared to traditional gasoline-powered cars since they use electricity as fuel. The cost of electricity is generally lower than gasoline, and electric cars require less maintenance due to their simpler drivetrains and fewer moving parts.
+3. are innovative, with development of advance battery technolgies, smart features, and autonomous driving. 
