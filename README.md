@@ -42,7 +42,7 @@ Link to [Backend](https://github.com/xieb3cky/CStation-Backend)
 ### Homepage 
 Landing page consist of background video credit section located above. The navigation bar features various options, including search, quick search, log in, and sign up for easy access. Users can initiate a 'quick search' that takes user's current geolocation data to automatically search for charging stations nearby. Alternatively, users can perform a more detailed 'search' that requires additional information, such as the user's location, desired charger type, and maximum search results (limit to 10).
 <p align="center">
-  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/landing-pagegif.gif" alt="animated" />
+  <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/landingpage.gif" alt="animated" />
 </p>
 
 ### Search Form 
