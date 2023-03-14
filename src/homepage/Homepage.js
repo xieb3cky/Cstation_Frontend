@@ -113,9 +113,9 @@ function Homepage({ search }) {
                     <video id="background-video" autoPlay loop muted>
                         <source src={video} type="video/mp4" />
                     </video>
-                    <div class="landing-page">
-                        <div class="landing-container">
-                            <div class="info">
+                    <div className="landing-page">
+                        <div className="landing-container">
+                            <div className="info">
                                 <h1>Search Electric Car Chargers Near You</h1>
                                 <p>1. Enter your address</p>
                                 <p>2. Select charger type</p>
