@@ -61,10 +61,10 @@ function LoginForm({ login }) {
             <div className="page-grid grid">
                 <section className="banner grid center">
                     <section className="banner grid center">
-                        <div class="road">
-                            <div class="taxi">
-                                <div class="light_beam"></div>
-                                <div class="side_mirror"></div>
+                        <div className="road">
+                            <div className="taxi">
+                                <div className="light_beam"></div>
+                                <div className="side_mirror"></div>
                                 <span>
                                     <b></b>
                                     <i></i>

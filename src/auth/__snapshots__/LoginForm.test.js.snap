@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex center body-container"
+  >
+    <div
+      class="page-grid grid"
+    >
+      <section
+        class="banner grid center"
+      >
+        <section
+          class="banner grid center"
+        >
+          <div
+            class="road"
+          >
+            <div
+              class="taxi"
+            >
+              <div
+                class="light_beam"
+              />
+              <div
+                class="side_mirror"
+              />
+              <span>
+                <b />
+                <i />
+              </span>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section
+        class="form-wrapper grid center"
+      >
+        <form
+          class="form-section"
+        >
+          <div
+            class="header"
+          >
+            <h1>
+              Welcome Back ! 😄
+            </h1>
+            <p>
+              Please enter your details.
+            </p>
+          </div>
+          <div
+            class="field"
+          >
+            <label>
+              Username
+            </label>
+            <input
+              class="form-control"
+              name="username"
+              value=""
+            />
+          </div>
+          <div
+            class="field"
+          >
+            <label>
+              Password
+            </label>
+            <input
+              class="form-control"
+              name="password"
+              type="password"
+              value=""
+            />
+          </div>
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Sign in
+          </button>
+        </form>
+      </section>
+    </div>
+  </div>
+</DocumentFragment>
+`;
