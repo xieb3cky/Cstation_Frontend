@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <video
+      autoplay=""
+      id="background-video"
+      loop=""
+    >
+      <source
+        src="ev-video2.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <div
+      class="landing-page"
+    >
+      <div
+        class="landing-container"
+      >
+        <div
+          class="info"
+        >
+          <h1>
+            Search Electric Car Chargers Near You
+          </h1>
+          <p>
+            1. Enter your address
+          </p>
+          <p>
+            2. Select charger type
+          </p>
+          <p>
+            3. Select max result
+          </p>
+          <p>
+            4. Hit Search
+          </p>
+          <div
+            class="or-option"
+          >
+             OR 
+          </div>
+          <button>
+            Quick Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot when logged out 1`] = `
+<DocumentFragment>
+  <div>
+    <video
+      autoplay=""
+      id="background-video"
+      loop=""
+    >
+      <source
+        src="ev-video2.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <div
+      class="landing-page"
+    >
+      <div
+        class="landing-container"
+      >
+        <div
+          class="info"
+        >
+          <h1>
+            Search Electric Car Chargers Near You
+          </h1>
+          <p>
+            1. Enter your address
+          </p>
+          <p>
+            2. Select charger type
+          </p>
+          <p>
+            3. Select max result
+          </p>
+          <p>
+            4. Hit Search
+          </p>
+          <div
+            class="or-option"
+          >
+             OR 
+          </div>
+          <button>
+            Quick Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
