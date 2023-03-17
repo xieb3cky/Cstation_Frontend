@@ -23,9 +23,7 @@ function SignupForm({ signup }) {
         firstName: "",
         lastName: "",
         email: "",
-        bio: "",
-        profile_img: "",
-        cover_img: ""
+        profile_img: ""
     });
     const [formErrors, setFormErrors] = useState([]);
 
@@ -56,9 +54,7 @@ function SignupForm({ signup }) {
             firstName: "",
             lastName: "",
             email: "",
-            bio: "",
-            profile_img: "",
-            cover_img: ""
+            profile_img: ""
         })
     }
 
