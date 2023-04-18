@@ -41,9 +41,10 @@ Link to [Backend](https://github.com/xieb3cky/CStation-Backend)
 
 ### Homepage 
 Landing page consist of background video credit section located above. The navigation bar features various options, including search, quick search, log in, and sign up for easy access. Users can initiate a 'quick search' that takes user's current geolocation data to automatically search for charging stations nearby. Alternatively, users can perform a more detailed 'search' that requires additional information, such as the user's location, desired charger type, and maximum search results (limit to 10).
-<p align="center">
+<!-- <p align="center">
   <img src="https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/landingpage.gif" alt="animated" />
-</p>
+</p> -->
+![landing page](https://github.com/xieb3cky/Cstation_Frontend/blob/master/demo/landingpage.gif)
 
 ### Search Form 
 The search form displays an autocomplete input box that offers location-based suggestions and predictions as the user types. Once the user has entered their location, they can select from a variety of charger types, including popular options like Tesla, CCS1, CHAdeMO, and J-Plug. After specifying their charger type preferences, the user can set a maximum results parameter and hit search button!
