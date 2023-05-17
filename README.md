@@ -1,7 +1,7 @@
 
 # C Station 
 [Live Link](https://cstation.netlify.app/) 
-
+[Walkthrough](https://www.canva.com/design/DAFgv2UykLc/nO-wnIArsebZGgIHzFvBxA/view?utm_content=DAFgv2UykLc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) 
 Link to [Backend](https://github.com/xieb3cky/CStation-Backend) 
 
 ## Summary
